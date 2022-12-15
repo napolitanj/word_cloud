@@ -21,20 +21,41 @@
             gap:2em;
         }
 
+        .inputElements {
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            gap:1em;
+        }
+
         .mainContainer {
             display:flex;
             justify-content:center;
             align-items:center;
             background-color:white;
-            height:50em;
-            width:50em;
+            height:40em;
+            width:70em;
+        }
+
+        .paragraphEntry {
+            width:70em;
+            height:5em;
+            overflow:break-word;
+        }
+
+        .submitButton {
+            width:30em;
+            
         }
 
     </style>
     <body>
-        <div class="header">
-            <label for="wordInput">Enter a word:</label>
-            <input type="text" id="wordInput"></input>
+        <div>
+            <form class="inputElements">
+                <label for="wordInput">Enter a paragraph:</label>
+                <textarea class="paragraphEntry" type="text" id="wordInput"></textarea>
+                <input class="submitButton" id="submitButton" type="submit" value="Submit">
+            </form>
         </div>
         <div class="mainContainer">
             <div id="cloud">
