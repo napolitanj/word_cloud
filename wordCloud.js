@@ -2,10 +2,11 @@ const submit = document.getElementById("submitButton")
 
 submit.addEventListener("click", () => createWordCloud());
 
-// Adds each word in the paragraph entered to an array
+// Adds each word in the paragraph entered to an array, filters punctuation
 function createWordArray() {
-    let paragraph = document.getElementById("paragraphInput")
-    let words = paragraph.value.split(' ');
+    let paragraph = document.getElementById("paragraphInput");
+    let cleanParagraph = paragraph.value.replace(/[.,\/!$%\^&\*;:{}=\-_`~()]/g,"");
+    let words = cleanParagraph.split(' ');
     return words;
 }
 
