@@ -1,5 +1,4 @@
 const submit = document.getElementById("submitButton")
-
 submit.addEventListener("click", () => createWordCloud());
 
 // Adds each word in the paragraph entered to an array, filters punctuation
@@ -10,8 +9,18 @@ function createWordArray() {
     return words;
 }
 
-// Returns an array containing word objects, 
-// indicating the name of the word and the number of occurances
+// Adds words to cloud window adjusting for count 
+function appendToDOM(arrayOfWords) {
+    let cloudWindow = document.getElementById("cloud")
+    arrayOfWords.forEach((word) => {
+        let wordDiv = document.createElement("div");
+        wordDiv.style.fontSize = `${word.count * 10}px`;
+        wordDiv.textContent = word.name;
+        cloudWindow.appendChild(wordDiv)
+    })
+}
+
+// Returns an array containing word objects, indicating the name of the word and the number of occurances
 function createWordCloud() {
     let words = createWordArray();
     let checkedWords = []
@@ -35,9 +44,8 @@ function createWordCloud() {
             checkedWords.push(newWord)
         }
     })
-
-    console.log(checkedWords)
-    return checkedWords;
+    
+    appendToDOM(checkedWords);
 }
 
 class WordCount {
