@@ -1,8 +1,11 @@
 const submit = document.getElementById("submitButton")
+let cloudWindow = document.getElementById("cloud")
+
 submit.addEventListener("click", () => createWordCloud());
 
 // Adds each word in the paragraph entered to an array, filters punctuation
 function createWordArray() {
+    cloudWindow.textContent = "";
     let paragraph = document.getElementById("paragraphInput");
     let cleanParagraph = paragraph.value.replace(/[.,\/!$%\^&\*;:{}=\-_`~()]/g,"");
     let words = cleanParagraph.split(' ');
@@ -11,11 +14,16 @@ function createWordArray() {
 
 // Adds words to cloud window adjusting for count 
 function appendToDOM(arrayOfWords) {
-    let cloudWindow = document.getElementById("cloud")
     arrayOfWords.forEach((word) => {
-        let wordDiv = document.createElement("div");
-        wordDiv.style.fontSize = `${word.count * 10}px`;
+        let wordDiv = document.createElement("span");
+        wordDiv.style.fontSize = `${word.count*10.5}px`;
         wordDiv.textContent = word.name;
+        wordDiv.style.display = 'block'
+        wordDiv.style.position = 'absolute'
+        wordDiv.style.padding = '.2em'
+        wordDiv.style.lineHeight = '0'
+        wordDiv.style.top = `${Math.floor(Math.random() * 100)}%`;
+        wordDiv.style.left = `${Math.floor(Math.random() * 100)}%`;
         cloudWindow.appendChild(wordDiv)
     })
 }

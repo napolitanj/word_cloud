@@ -28,13 +28,25 @@
             gap:1em;
         }
 
-        .mainContainer {
+        .cloudContainer {
+            height:20em;
+            width:80em;
+            background-color:white;
+            padding:10em;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .cloud {
             display:flex;
             justify-content:center;
             align-items:center;
             background-color:white;
-            height:40em;
-            width:70em;
+            position:relative;
+            height:30em;
+            width:90em;
+            overflow:wrap;
         }
         .paragraphEntry {
             width:70em;
@@ -55,8 +67,8 @@
                 <button class="submitButton" id="submitButton">Submit</button>
             </div>
         </div>
-        <div class="mainContainer">
-            <div id="cloud">
+        <div class="cloudContainer">
+            <div id="cloud" class="cloud">
             </div>
         </div>
     </body>
